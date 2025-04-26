@@ -69,7 +69,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-https://www.loom.com/share/8910aadcf7f143218e626b5da177d140?sid=0c3a8898-a2a5-4284-b8ef-e5b025068b4a
+https://www.loom.com/share/87b9f38d912947aa877cf85d2ed04f50?sid=b4eaebac-7d6d-4a59-a44a-d7d7af331a6b
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  

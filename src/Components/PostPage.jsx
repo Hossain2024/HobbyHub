@@ -2,12 +2,14 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { supabase } from '../client';
 import "./PostPage.css";
+import './Home.css'
 const PostPage = () => {
   const { title } = useParams();
   const decodedTitle = decodeURIComponent(title);
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [loading, setLoading] = useState(true); // 👈 loading state
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -32,8 +34,13 @@ const PostPage = () => {
       if (!error) setComments(data);
     };
 
-    fetchPost();
-    fetchComments();
+    const fetchData = async () => {
+      setLoading(true);
+      await Promise.all([fetchPost(), fetchComments()]);
+      setLoading(false);
+    };
+
+    fetchData();
   }, [decodedTitle]);
 
   const handleLike = async () => {
@@ -49,6 +56,8 @@ const PostPage = () => {
       console.error('Like update error:', error);
     }
   };
+
+
 
   // Function for submitting a comment
   const handleCommentSubmit = async (e) => {
@@ -82,7 +91,13 @@ const PostPage = () => {
     }
   };
   
-  
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return post ? (
     <div className="post-page">
       <h1>{post.Title}</h1>
