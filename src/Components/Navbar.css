@@ -1,0 +1,43 @@
+.navbar{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:hwb(355 91% 4%);
+    padding:15px 7%
+}
+
+ul{
+    flex: 1;
+    list-style: none;
+    text-align:right;
+}
+
+ul,li{
+    display:inline-block;
+    margin:10px 20px;
+    font-size: larger;
+    cursor:pointer
+
+}
+.search-box{
+    display: flex;
+    align-items:center;
+    
+    padding: 10px;
+    border-radius: 50px
+}
+
+.search-box input{
+    padding: 6px;
+
+    outline: 0;
+    color:#fff;
+    font-size:18px;
+    max-width: 200px;
+    max-width: 200px;
+}
+.search-box img{
+    width: 20px;
+    cursor: pointer;
+}
